@@ -14,7 +14,7 @@ while True:
     email['from'] = 'Name'
     email['to'] = 'example@gmail.com'
     try:
-        subject_1 = email['subject'] = r.recognize_google(
+        subject_1 = email['subject'] = r.recognize_google(  # Email Subject
             audio, language="en-US")
         print(f'What did you say: {subject_1}')
     except:
@@ -26,7 +26,8 @@ while True:
         audio_2 = r.listen(source_2)
 
     try:
-        email_content = r.recognize_google(audio_2, language="en-US")
+        email_content = r.recognize_google(
+            audio_2, language="en-US")  # Email Content
         email.set_content(email_content)
         print(
             f'What did you say: {email_content}')
@@ -38,7 +39,7 @@ while True:
     with smtplib.SMTP(host='smtp.gmail.com', port=25) as smtp:
         smtp.ehlo()      # This is kind of like 'Hello' message
         smtp.starttls()  # TLS is an encryption mechanism
-        
+
         # We have to login to our account to send the email
         smtp.login('something@gmail.com', 'XXXXYYYYZZZ')
         smtp.send_message(email)   # Send the message
