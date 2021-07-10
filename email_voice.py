@@ -15,7 +15,7 @@ while True:
     email['to'] = 'example@gmail.com'
     try:
         subject_1 = email['subject'] = r.recognize_google(  # Email Subject
-            audio, language="en-US")
+            audio, language="en-US")                        # Language: English
         print(f'What did you say: {subject_1}')
     except:
         print('I am sorry! I can not understand!')
@@ -42,7 +42,7 @@ while True:
 
         # We have to login to our account to send the email
         smtp.login('something@gmail.com', 'XXXXYYYYZZZ')
-        smtp.send_message(email)   # Send the message
+        smtp.send_message(email)   # Send the message to the receiver
         print('all good boss!')
         break
 
